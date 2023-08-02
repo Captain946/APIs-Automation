@@ -1,0 +1,225 @@
+{
+	"info": {
+		"_postman_id": "a920d835-c495-482f-8a35-7aee3acd57a2",
+		"name": "Bulk Order",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get PNR",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "76ee8425-d6fc-45bc-87fa-4e504f0d7cd3",
+						"exec": [
+							"const auth = pm.collectionVariables.get(\"Prod_Auth\");\r",
+							"if(auth == null || auth == undefined){\r",
+							"    const postRequest = {\r",
+							"        url: 'https://www.ecatering.irctc.co.in/api/v1/auth/user/login',\r",
+							"        method: 'POST',\r",
+							"        header: {\r",
+							"            'Content-Type': 'application/json',\r",
+							"        },\r",
+							"        body: {\r",
+							"            mode: 'raw',\r",
+							"            raw: JSON.stringify({\r",
+							"                \"mobile\": \"9571894947\",\r",
+							"                \"password\": \"ManisH123@\",\r",
+							"            })\r",
+							"        }\r",
+							"    };\r",
+							"    pm.sendRequest(postRequest, (error, response) => {\r",
+							"        var x_auth = response.headers.find(h => h.key == \"X-AUTH\");\r",
+							"        var token = x_auth.value;\r",
+							"        pm.collectionVariables.set(\"Prod_Auth\", token);\r",
+							"    });\r",
+							"}\r",
+							"const stationCode = \"NGP\"\r",
+							"pm.collectionVariables.set(\"stationCode\",stationCode);\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "7fc83683-fb6f-4a3f-8d88-45b606cf1b3e",
+						"exec": [
+							"const code = pm.response.code;\r",
+							"\r",
+							"if (code == 200) {\r",
+							"    postman.setNextRequest(\"Bulk order\");\r",
+							"    const Pnr = pm.response.json().result.orderList[0].pnr;\r",
+							"    pm.collectionVariables.set(\"pnr\", Pnr);\r",
+							"    const date = pm.response.json().result.orderList[0].deliveryDate;\r",
+							"    var moment = require(\"moment\");\r",
+							"    pm.collectionVariables.set(\"Date\",moment(date).format(\"YYYY-MM-DD\"));\r",
+							"} else if (code == 401) {\r",
+							"    pm.collectionVariables.set(\"Prod_Auth\", null);\r",
+							"    postman.setNextRequest(\"Get PNR\");  \r",
+							"}else{\r",
+							"    postman.setNextRequest(null);\r",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"_postman_id": "08d83ed2-18e0-4a4a-a59c-b3a219097cfa",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-auth",
+						"value": "{{Prod_Auth}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://www.ecatering.irctc.co.in/api/v1/order/list?page=1&size=50&stationCode={{stationCode}}",
+					"protocol": "https",
+					"host": [
+						"www",
+						"ecatering",
+						"irctc",
+						"co",
+						"in"
+					],
+					"path": [
+						"api",
+						"v1",
+						"order",
+						"list"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "size",
+							"value": "50"
+						},
+						{
+							"key": "stationCode",
+							"value": "{{stationCode}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Bulk order",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "7217f0ce-3e40-4f63-88f8-b3033f573294",
+						"exec": [
+							"pm.test(\"Status code is 201 and status is created\", function(){\r",
+							"    var code = pm.response.code;\r",
+							"    var status = pm.response.status;\r",
+							"    pm.expect(code).to.equal(201);\r",
+							"    pm.expect(status).to.equal(\"Created\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Content Type is application/json \", function(){\r",
+							"    pm.expect(pm.response.headers.get(\"Content-Type\")).to.equal(\"application/json\")\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Order is Created Successfully\", function(){\r",
+							"    var result = pm.response.json().result;\r",
+							"    pm.expect(result.id).to.be.exist;\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "7e27bff3-e486-4e96-9ff7-9ec7d3f0eb4b",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"_postman_id": "f3b3e5b4-ae6a-4e3c-8606-bc2a713f1930",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"customerType\": \"CUSTOMER\",\r\n    \"date\": \"{{Date}}\",\r\n    \"email\": \"manish@testing.com\",\r\n    \"preferredLanguage\": \"ENGLISH\",\r\n    \"message\": \"For intetnal Testing\",\r\n    \"mobile\": \"9571894947\",\r\n    \"fullName\": \"Testing \",\r\n    \"personCount\": \"56\",\r\n    \"pnr\": \"{{pnr}}\",\r\n    \"source\": \"desktop web\",\r\n    \"isTravelAgent\": false\r\n}\r\n//customerType : \"Agent\",\r\n//preferredLanguage : \"HINDI\",\r\n// source : \"Android App\",\"Mobile Web\"\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{Base_Url}}/api/v2/customer/callback"
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "9bdbdf6c-f42d-46cf-9eea-73bf384c9bae",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "2eed8af3-1273-4abd-8bb0-018ec96b5516",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "74b27cc0-e519-4643-9718-48d0f82872d3",
+			"key": "stationCode",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"id": "9a4e41a9-0d22-4b3e-b7e4-aa8fbb6aabee",
+			"key": "Prod_Auth",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"id": "108e6c6e-e023-4a9c-98f9-08be2c9617ef",
+			"key": "pnr",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"id": "5f7a77ec-41bf-45d4-96f3-6c099e10fa7b",
+			"key": "Date",
+			"value": "",
+			"type": "string"
+		}
+	]
+}
