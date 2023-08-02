@@ -1,0 +1,1089 @@
+{
+	"info": {
+		"_postman_id": "0525a082-095b-4f25-89f8-29aa96fbc608",
+		"name": "Pending Outlets for Aggregator",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create New Outlet",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "0fc94a02-74ee-41db-88b3-f08f8ebb1617",
+						"exec": [
+							"const auth = pm.collectionVariables.get(\"Aggregator\");\r",
+							"if(auth == undefined || auth == null){\r",
+							"    const url = pm.environment.get(\"BaseUrl\");\r",
+							"    const postRequest = {\r",
+							"        url: ''+url+'/api/v1/auth/user/login',\r",
+							"        method: 'POST',\r",
+							"        header: {\r",
+							"            'Content-Type': 'application/json',\r",
+							"        },\r",
+							"        body: {\r",
+							"            mode: 'raw',\r",
+							"            raw: JSON.stringify({\r",
+							"                \"mobile\": \"9571894947\",\r",
+							"                \"password\": \"test123\"\r",
+							"            })\r",
+							"        }\r",
+							"    };\r",
+							"    pm.sendRequest(postRequest, (error, response) => {\r",
+							"        var x_auth = response.headers.find(h => h.key == \"X-AUTH\");\r",
+							"        var token = x_auth.value;\r",
+							"        pm.collectionVariables.set(\"Aggregator\", token);\r",
+							"\r",
+							"        const vendorId = response.json().result.vendorId;\r",
+							"        pm.collectionVariables.set(\"vendorId\",vendorId);\r",
+							"    });\r",
+							"}\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "bdb40ad9-09e3-48ff-bea5-eab2c391f73b",
+						"exec": [
+							"const code = pm.response.code;\r",
+							"if(code == 200 || code == 201 ){\r",
+							"    const reqBody = JSON.parse(pm.request.body.raw);\r",
+							"    const aggregatorOutletId = reqBody.outlets[0].outletId;\r",
+							"    pm.collectionVariables.set(\"aggregatorOutletId\",aggregatorOutletId);\r",
+							"    postman.setNextRequest(\"Pending Outlets\")\r",
+							"\r",
+							"\r",
+							"    const endPoint = pm.request.url.getPath();\r",
+							"    const stationCode = endPoint.split(\"/\")\r",
+							"    pm.collectionVariables.set(\"stationCode\",stationCode[stationCode.length-1])\r",
+							"\r",
+							"    pm.test(\"outlet are created successfully\", () => {\r",
+							"        pm.expect(code).to.be.oneOf([200,201]);\r",
+							"    })\r",
+							"}else if(code == 401 || code == 429){\r",
+							"    pm.collectionVariables.set(\"Aggregator\",null);\r",
+							"    postman.setNextRequest(\"Create New Outlet\");\r",
+							"}else{\r",
+							"    postman.setNextRequest(\"null\")\r",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"_postman_id": "7e725039-6481-4d8d-aca1-11c0ee074240",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Aggregator}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"outlets\": [\r\n        {\r\n            \"outletId\": \"{{$randomBankAccount}}\",\r\n            \"outletName\": \"{{$randomProductName}}\",\r\n            \"order_timing\": \"60\",\r\n            \"minOrderAmount\": \"50\",\r\n            \"openingTime\": \"08:00\",\r\n            \"closingTime\": \"22:00\",\r\n            \"deliveryCost\": \"0\",\r\n            \"prepaid\": {{$randomBoolean}},\r\n            \"address\": \"{{$randomStreetAddress}}\",\r\n            \"city\": \"{{$randomCity}}\",\r\n            \"state\": \"New Delhi\",\r\n            \"companyName\": \"{{$randomCompanyName}}\",\r\n            \"vendorPanNumber\": \"AKRPN5086A\",\r\n            \"gstNo\": \"07QATCZ7586R1Z9\",\r\n            \"fssaiNo\": \"12345688900231\",\r\n            \"fssaiValidUpto\": \"2025-12-30\",\r\n            \"closingPeriod\": [],\r\n            \"weeklyClosed\": [],\r\n            \"logoImage\": \"https://s.tmimgcdn.com/scr/800x500/212900/spoon-and-fork-restaurant-logo_212966-original.png\",\r\n            \"email\": \"{{$randomEmail}}\",\r\n            \"mobile\": \"9000002102\"\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{BaseUrl}}/api/v1/vendor/aggregator/outlets/NDLS"
+			},
+			"response": []
+		},
+		{
+			"name": "Pending Outlets",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "b2c8b5d2-4b79-4ac5-be32-6a1ecddbcb4b",
+						"exec": [
+							"const auth = pm.collectionVariables.get(\"Aggregator\");\r",
+							"if(auth == undefined || auth == null){\r",
+							"    const url = pm.environment.get(\"BaseUrl\");\r",
+							"    const postRequest = {\r",
+							"        url: ''+url+'/api/v1/auth/user/login',\r",
+							"        method: 'POST',\r",
+							"        header: {\r",
+							"            'Content-Type': 'application/json',\r",
+							"        },\r",
+							"        body: {\r",
+							"            mode: 'raw',\r",
+							"            raw: JSON.stringify({\r",
+							"                \"mobile\": \"9571894947\",\r",
+							"                \"password\": \"test123\"\r",
+							"            })\r",
+							"        }\r",
+							"    };\r",
+							"    pm.sendRequest(postRequest, (error, response) => {\r",
+							"        var x_auth = response.headers.find(h => h.key == \"X-AUTH\");\r",
+							"        var token = x_auth.value;\r",
+							"        pm.collectionVariables.set(\"Aggregator\", token);\r",
+							"    });\r",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "d416fcea-362b-405d-bbee-5b38659ef20c",
+						"exec": [
+							"const code = pm.response.code;\r",
+							"if(code == 200){\r",
+							"    const aggregatorOutletId = pm.collectionVariables.get(\"aggregatorOutletId\");\r",
+							"    const resBody = pm.response.json().result;\r",
+							"    const outletDetails = resBody.data.find((id) => {\r",
+							"        return id.aggregatorOutletId == aggregatorOutletId;\r",
+							"    })\r",
+							"    if(outletDetails != undefined){\r",
+							"        pm.test(\"Created outlet are visible in the Pending Outlets\", () => {\r",
+							"            pm.expect(aggregatorOutletId).to.be.equal(outletDetails.aggregatorOutletId);\r",
+							"            pm.collectionVariables.set(\"applicationId\",outletDetails.id);\r",
+							"        });\r",
+							"        pm.test(\"Outlet status are visible as 'Documnet Upload Pending'\", () => {\r",
+							"            pm.expect(outletDetails.status).to.be.equal(\"DOCUMENT_UPLOAD_PENDING\");\r",
+							"        });\r",
+							"        if(outletDetails.status == \"DOCUMENT_UPLOAD_PENDING\"){\r",
+							"            postman.setNextRequest(\"Doc Upload\");\r",
+							"        }else{\r",
+							"            postman.setNextRequest(null);\r",
+							"        }\r",
+							"    }else{\r",
+							"        pm.test(\"outlet are not visible in the pending outlets\", () => {\r",
+							"            pm.expect(false).to.be.true;\r",
+							"        })\r",
+							"        postman.setNextRequest(null);\r",
+							"    }\r",
+							"}else if(code == 401 || code == 429){\r",
+							"    pm.collectionVariables.set(\"Aggregator\",null);\r",
+							"    postman.setNextRequest(\"Pending Outlets\");\r",
+							"}else{\r",
+							"    postman.setNextRequest(null)\r",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"_postman_id": "f13a78db-62f7-4888-9892-1aceeef68406",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-auth",
+						"value": "{{Aggregator}}",
+						"type": "text"
+					}
+				],
+				"url": "{{BaseUrl}}/api/v1/vendor/outlet/pending"
+			},
+			"response": []
+		},
+		{
+			"name": "Doc Upload",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "938d256d-7e8a-41ef-af64-0f314c7e6e11",
+						"exec": [
+							"const auth = pm.collectionVariables.get(\"Aggregator\");\r",
+							"const applicationId = pm.collectionVariables.get(\"applicationId\");\r",
+							"\r",
+							"if(auth == undefined || auth == null){\r",
+							"    const url = pm.environment.get(\"BaseUrl\");\r",
+							"    const postRequest = {\r",
+							"        url: ''+url+'/api/v1/auth/user/login',\r",
+							"        method: 'POST',\r",
+							"        header: {\r",
+							"            'Content-Type': 'application/json',\r",
+							"        },\r",
+							"        body: {\r",
+							"            mode: 'raw',\r",
+							"            raw: JSON.stringify({\r",
+							"                \"mobile\": \"9571894947\",\r",
+							"                \"password\": \"test123\"\r",
+							"            })\r",
+							"        }\r",
+							"    };\r",
+							"    pm.sendRequest(postRequest, (error, response) => {\r",
+							"        var x_auth = response.headers.find(h => h.key == \"X-AUTH\");\r",
+							"        var token = x_auth.value;\r",
+							"        pm.collectionVariables.set(\"Aggregator\", token);\r",
+							"    });\r",
+							"}\r",
+							"\r",
+							"    const url = pm.environment.get(\"BaseUrl\");\r",
+							"    const postRequest = {\r",
+							"        url: ''+url+'/api/v1/vendor/application/'+applicationId+'',\r",
+							"        method: 'GET',\r",
+							"        header: {\r",
+							"            'Content-Type': 'application/json',\r",
+							"            \"x-auth\" : ''+auth+''\r",
+							"        }\r",
+							"    };\r",
+							"    pm.sendRequest(postRequest, (error, response) => {\r",
+							"        const code = response.code;\r",
+							"        if(code == 200){\r",
+							"            const resBody = response.json().result;\r",
+							"            const applicationType = resBody.applicationType;\r",
+							"            pm.collectionVariables.set(\"applicationType\",applicationType);\r",
+							"        }\r",
+							"    });\r",
+							"\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "55a4e195-1388-4335-88a7-a01167e86bac",
+						"exec": [
+							"const code = pm.response.code;\r",
+							"if(code == 201){\r",
+							"    postman.setNextRequest(\"Supervisor Pending Outlets\");\r",
+							"\r",
+							"    const aggregatorOutletId = pm.collectionVariables.get(\"aggregatorOutletId\");\r",
+							"    const applicationId = pm.collectionVariables.get(\"applicationId\");\r",
+							"    const applicationType = pm.collectionVariables.get(\"applicationType\");\r",
+							"    const resBody = pm.response.json().result;\r",
+							"\r",
+							"    pm.test(\"Got Status code 201\", () => {\r",
+							"        pm.expect(code).to.be.equal(201);\r",
+							"    })\r",
+							"    pm.test(\"Outlet id are match in the Response\", () => {\r",
+							"        pm.expect(aggregatorOutletId).to.be.equal(resBody.aggregatorOutletId);\r",
+							"    })\r",
+							"    pm.test(\"application Id are match to the Response\", () => {\r",
+							"        pm.expect(applicationId).to.be.equal(resBody.id);\r",
+							"    })\r",
+							"    pm.test(\"applicationType are visible as Expected\", () => {\r",
+							"        pm.expect(applicationType).to.be.equal(resBody.applicationType);\r",
+							"    })\r",
+							"    pm.test(\"outlet status are visible as 'Approval_pending\", () => {\r",
+							"        pm.expect(\"APPROVAL_PENDING\").to.be.equal(resBody.status);\r",
+							"    })\r",
+							"}else if(code == 401 || code == 429){\r",
+							"    pm.collectionVariables.set(\"Aggregator\",null);\r",
+							"    postman.setNextRequest(\"Doc Upload\");\r",
+							"}else{\r",
+							"    postman.setNextRequest(null);\r",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"_postman_id": "a2af136d-76d8-43cb-8313-a97a4706486d",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "x-auth",
+						"value": "{{Aggregator}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": {{applicationId}},\r\n    \"logoImageUrl\": \"imageUploaded-test\",\r\n    \"uploadedPan\": \"uploadedPan-test\",\r\n    \"uploadedGST\": \"uploadedGST-test\",\r\n    \"uploadedFssai\": \"uploadedFssai-test\",\r\n    \"applicationType\": \"{{applicationType}}\",\r\n    \"outletFrontImage\": \"outletFrontImage-test\",\r\n    \"outletKitchenImage\": \"outletKitchenImage-test\",\r\n    \"outletInsideImage\": \"outletInsideImage\",\r\n    \"otherImage\": \"otherImage-test\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{BaseUrl}}/api/v1/vendor/outlet/pending/{{applicationId}}/uploadDoc"
+			},
+			"response": []
+		},
+		{
+			"name": "Supervisor Pending Outlets",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "cd39f197-ae35-423d-b0e8-fcdb57938875",
+						"exec": [
+							"const auth = pm.collectionVariables.get(\"supervisor\");\r",
+							"if(auth == undefined || auth == null){\r",
+							"    const url = pm.environment.get(\"BaseUrl\");\r",
+							"    const postRequest = {\r",
+							"        url: ''+url+'/api/v1/auth/user/login',\r",
+							"        method: 'POST',\r",
+							"        header: {\r",
+							"            'Content-Type': 'application/json',\r",
+							"        },\r",
+							"        body: {\r",
+							"            mode: 'raw',\r",
+							"            raw: JSON.stringify({\r",
+							"                \"mobile\": \"5653254544\",\r",
+							"                \"password\": \"supervisor@123\",\r",
+							"            })\r",
+							"        }\r",
+							"    };\r",
+							"    pm.sendRequest(postRequest, (error, response) => {\r",
+							"        var x_auth = response.headers.find(h => h.key == \"X-AUTH\");\r",
+							"        var token = x_auth.value;\r",
+							"        pm.collectionVariables.set(\"supervisor\", token);\r",
+							"    });\r",
+							"}\r",
+							"    "
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "be0d2c8c-f2c9-4a44-a85b-b163f5aa2cee",
+						"exec": [
+							"const code = pm.response.code;\r",
+							"if(code == 200){\r",
+							"\r",
+							"    const resBody = pm.response.json().result;\r",
+							"    const aggregatorOutletId = pm.collectionVariables.get(\"aggregatorOutletId\");\r",
+							"    const applicationId = pm.collectionVariables.get(\"applicationId\");\r",
+							"    const applicationType = pm.collectionVariables.get(\"applicationType\");\r",
+							"\r",
+							"    const applicationDetails = resBody.data.find((id) => {\r",
+							"        return id.id == applicationId && id.aggregatorOutletId == aggregatorOutletId;\r",
+							"    });\r",
+							"\r",
+							"    if(applicationDetails != undefined){\r",
+							"\r",
+							"        pm.test(\"outlet id match to the Response data\", () => {\r",
+							"            pm.expect(aggregatorOutletId).to.be.equal(applicationDetails.aggregatorOutletId);\r",
+							"        });\r",
+							"        pm.test(\"application id are match to the Response data\", () => {\r",
+							"            pm.expect(applicationId).to.be.equal(applicationDetails.id);\r",
+							"        });\r",
+							"        pm.test(\"applicationType are match to the previous type\", () => {\r",
+							"            pm.expect(applicationType).to.be.equal(applicationDetails.applicationType)\r",
+							"        });\r",
+							"        pm.test(\"outlet status are visible as APPROVAL_PENDING\", () => {\r",
+							"            pm.expect(\"APPROVAL_PENDING\").to.be.equal(applicationDetails.status);\r",
+							"        });\r",
+							"\r",
+							"        const supervisorStatus = applicationDetails.supervisorStatus;\r",
+							"        if(supervisorStatus == \"APPROVAL_PENDING\"){\r",
+							"            console.log(\"Pass\")\r",
+							"            postman.setNextRequest(\"Supervisor Status\");\r",
+							"        }else{\r",
+							"            console.log(\"fail\")\r",
+							"            postman.setNextRequest(null);\r",
+							"        }\r",
+							"    }else{\r",
+							"        pm.test(\"outlet are not visible in the Pending outlets\", () => {\r",
+							"            pm.expect(true).to.be.false;\r",
+							"        });\r",
+							"        postman.setNextRequest(null);\r",
+							"    }\r",
+							"}else if(code == 401 ||code == 429){\r",
+							"    pm.collectionVariables.set(\"supervisor\",null);\r",
+							"    postman.setNextRequest(\"Supervisor Pending Outlets\")\r",
+							"}else{\r",
+							"    postman.setNextRequest(null)\r",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"_postman_id": "83e97fae-d780-4480-8d72-20a0bbc8fc6c",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-auth",
+						"value": "{{supervisor}}",
+						"type": "text"
+					}
+				],
+				"url": "{{BaseUrl}}/api/v1/vendor/outlet/pending"
+			},
+			"response": []
+		},
+		{
+			"name": "Supervisor Status",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "48fad445-2c86-4c75-9efb-4e967b6f956f",
+						"exec": [
+							"const auth = pm.collectionVariables.get(\"supervisor\");\r",
+							"if(auth == undefined || auth == null){\r",
+							"    const url = pm.environment.get(\"BaseUrl\");\r",
+							"    const postRequest = {\r",
+							"        url: ''+url+'/api/v1/auth/user/login',\r",
+							"        method: 'POST',\r",
+							"        header: {\r",
+							"            'Content-Type': 'application/json',\r",
+							"        },\r",
+							"        body: {\r",
+							"            mode: 'raw',\r",
+							"            raw: JSON.stringify({\r",
+							"                \"mobile\": \"5653254544\",\r",
+							"                \"password\": \"supervisor@123\",\r",
+							"            })\r",
+							"        }\r",
+							"    };\r",
+							"    pm.sendRequest(postRequest, (error, response) => {\r",
+							"        var x_auth = response.headers.find(h => h.key == \"X-AUTH\");\r",
+							"        var token = x_auth.value;\r",
+							"        pm.collectionVariables.set(\"supervisor\", token);\r",
+							"    });\r",
+							"}\r",
+							"    "
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "c6fa0596-a726-41db-a190-0d146971a5e8",
+						"exec": [
+							"const code = pm.response.code;\r",
+							"\r",
+							"if(code == 200){\r",
+							"\r",
+							"    const aggregatorOutletId = pm.collectionVariables.get(\"aggregatorOutletId\");\r",
+							"    const applicationId = pm.collectionVariables.get(\"applicationId\");\r",
+							"    const applicationType = pm.collectionVariables.get(\"applicationType\");\r",
+							"    const resBody = pm.response.json().result;\r",
+							"\r",
+							"    pm.test(\"Got Status code 200\", () => {\r",
+							"        pm.expect(code).to.be.equal(200);\r",
+							"    });\r",
+							"    pm.test(\"Outlet id are match in the Response\", () => {\r",
+							"        pm.expect(aggregatorOutletId).to.be.equal(resBody.aggregatorOutletId);\r",
+							"    });\r",
+							"    pm.test(\"application Id are match to the Response\", () => {\r",
+							"        pm.expect(applicationId).to.be.equal(resBody.id);\r",
+							"    });\r",
+							"    pm.test(\"applicationType are visible as Expected\", () => {\r",
+							"        pm.expect(applicationType).to.be.equal(resBody.applicationType);\r",
+							"    });\r",
+							"    pm.test(\"outlet status are visible as 'Approval_pending\", () => {\r",
+							"        pm.expect(\"APPROVAL_PENDING\").to.be.equal(resBody.status);\r",
+							"    });\r",
+							"    postman.setNextRequest(\"Manager Pending Outlets\");\r",
+							"\r",
+							"}else if(code == 401 || code == 429){\r",
+							"    pm.collectionVariables.set(\"supervisor\",null);\r",
+							"    postman.setNextRequest(\"Supervisor Status\");\r",
+							"}else {\r",
+							"    postman.setNextRequest(null);\r",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"_postman_id": "eae77584-28f5-4a67-8dfc-ba2813b1f4e2",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "x-auth",
+						"value": "{{supervisor}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"status\": \"APPROVED\",\r\n    \"remarks\": \"Approved by the API automate flow\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{BaseUrl}}/api/v1/vendor/outlet/pending/{{applicationId}}/supervisorStatus"
+			},
+			"response": []
+		},
+		{
+			"name": "Manager Pending Outlets",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "a9a94348-13f4-45ce-b6f9-016647012bf5",
+						"exec": [
+							"const auth = pm.collectionVariables.get(\"Manager\");\r",
+							"if(auth == undefined || auth == null){\r",
+							"    const url = pm.environment.get(\"BaseUrl\");\r",
+							"    const postRequest = {\r",
+							"        url: ''+url+'/api/v1/auth/user/login',\r",
+							"        method: 'POST',\r",
+							"        header: {\r",
+							"            'Content-Type': 'application/json',\r",
+							"        },\r",
+							"        body: {\r",
+							"            mode: 'raw',\r",
+							"            raw: JSON.stringify({\r",
+							"                \"mobile\": \"9545426656\",\r",
+							"                \"password\": \"test123\",\r",
+							"            })\r",
+							"        }\r",
+							"    };\r",
+							"    pm.sendRequest(postRequest, (error, response) => {\r",
+							"        var x_auth = response.headers.find(h => h.key == \"X-AUTH\");\r",
+							"        var token = x_auth.value;\r",
+							"        pm.collectionVariables.set(\"Manager\", token);\r",
+							"    });\r",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "49c16ba6-7116-464d-be19-37fad0d064a0",
+						"exec": [
+							"const code = pm.response.code;\r",
+							"\r",
+							"if(code == 200){\r",
+							"\r",
+							"    const resBody = pm.response.json().result;\r",
+							"    const aggregatorOutletId = pm.collectionVariables.get(\"aggregatorOutletId\");\r",
+							"    const applicationId = pm.collectionVariables.get(\"applicationId\");\r",
+							"    const applicationType = pm.collectionVariables.get(\"applicationType\");\r",
+							"\r",
+							"    const applicationDetails = resBody.data.find((id) => {\r",
+							"        return id.id == applicationId && id.aggregatorOutletId == aggregatorOutletId;\r",
+							"    });\r",
+							"\r",
+							"    if(applicationDetails != undefined){\r",
+							"\r",
+							"        pm.test(\"outlet id match to the Response data\", () => {\r",
+							"            pm.expect(aggregatorOutletId).to.be.equal(applicationDetails.aggregatorOutletId);\r",
+							"        });\r",
+							"        pm.test(\"application id are match to the Response data\", () => {\r",
+							"            pm.expect(applicationId).to.be.equal(applicationDetails.id);\r",
+							"        });\r",
+							"        pm.test(\"applicationType are match to the previous type\", () => {\r",
+							"            pm.expect(applicationType).to.be.equal(applicationDetails.applicationType)\r",
+							"        });\r",
+							"        pm.test(\"outlet status are visible as APPROVAL_PENDING\", () => {\r",
+							"            pm.expect(\"APPROVAL_PENDING\").to.be.equal(applicationDetails.status);\r",
+							"        });\r",
+							"        pm.test(\"supervisor are apporved the Status\", () => {\r",
+							"            pm.expect(\"APPROVED\").to.be.equal(applicationDetails.supervisorStatus);\r",
+							"        });\r",
+							"\r",
+							"        const supervisorStatus = applicationDetails.supervisorStatus;\r",
+							"        const managerstatus = applicationDetails.managerStatus;\r",
+							"        if(supervisorStatus == \"APPROVED\" && managerstatus == \"APPROVAL_PENDING\"){\r",
+							"            postman.setNextRequest(\"Manager Status\");\r",
+							"        }else{\r",
+							"            postman.setNextRequest(null);\r",
+							"        }\r",
+							"    }else{\r",
+							"        pm.test(\"outlet are not visible in the Pending outlets\", () => {\r",
+							"            pm.expect(true).to.be.false;\r",
+							"        });\r",
+							"        postman.setNextRequest(null);\r",
+							"    }\r",
+							"}else if(code == 401 ||code == 429){\r",
+							"    pm.collectionVariables.set(\"Manager\",null);\r",
+							"    postman.setNextRequest(\"Manager Pending Outlets\")\r",
+							"}else{\r",
+							"    postman.setNextRequest(null)\r",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"_postman_id": "9ed7188b-05bd-4f62-a41c-73b007d257eb",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-auth",
+						"value": "{{Manager}}",
+						"type": "text"
+					}
+				],
+				"url": "{{BaseUrl}}/api/v1/vendor/outlet/pending"
+			},
+			"response": []
+		},
+		{
+			"name": "Manager Status",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "293e5e59-c1d6-49b4-b5a0-1e284516016d",
+						"exec": [
+							"const auth = pm.collectionVariables.get(\"Manager\");\r",
+							"if(auth == undefined || auth == null){\r",
+							"    const url = pm.environment.get(\"BaseUrl\");\r",
+							"    const postRequest = {\r",
+							"        url: ''+url+'/api/v1/auth/user/login',\r",
+							"        method: 'POST',\r",
+							"        header: {\r",
+							"            'Content-Type': 'application/json',\r",
+							"        },\r",
+							"        body: {\r",
+							"            mode: 'raw',\r",
+							"            raw: JSON.stringify({\r",
+							"                \"mobile\": \"9545426656\",\r",
+							"                \"password\": \"test123\",\r",
+							"            })\r",
+							"        }\r",
+							"    };\r",
+							"    pm.sendRequest(postRequest, (error, response) => {\r",
+							"        var x_auth = response.headers.find(h => h.key == \"X-AUTH\");\r",
+							"        var token = x_auth.value;\r",
+							"        pm.collectionVariables.set(\"Manager\", token);\r",
+							"    });\r",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "2c51405c-c271-4c81-b9c3-145cca16cc71",
+						"exec": [
+							"const code = pm.response.code;\r",
+							"\r",
+							"if(code == 200){\r",
+							"\r",
+							"    const aggregatorOutletId = pm.collectionVariables.get(\"aggregatorOutletId\");\r",
+							"    const applicationId = pm.collectionVariables.get(\"applicationId\");\r",
+							"    const applicationType = pm.collectionVariables.get(\"applicationType\");\r",
+							"    const resBody = pm.response.json().result;\r",
+							"\r",
+							"    pm.test(\"Got Status code 200\", () => {\r",
+							"        pm.expect(code).to.be.equal(200);\r",
+							"    })\r",
+							"    pm.test(\"Outlet id are match in the Response\", () => {\r",
+							"        pm.expect(aggregatorOutletId).to.be.equal(resBody.aggregatorOutletId);\r",
+							"    })\r",
+							"    pm.test(\"application Id are match to the Response\", () => {\r",
+							"        pm.expect(applicationId).to.be.equal(resBody.id);\r",
+							"    })\r",
+							"    pm.test(\"applicationType are visible as Expected\", () => {\r",
+							"        pm.expect(applicationType).to.be.equal(resBody.applicationType);\r",
+							"    })\r",
+							"    pm.test(\"outlet status are visible as 'Approval_pending\", () => {\r",
+							"        pm.expect(\"APPROVAL_PENDING\").to.be.equal(resBody.status);\r",
+							"    })\r",
+							"    postman.setNextRequest(\"AGM Pending Outlets\");\r",
+							"    \r",
+							"}else if(code == 401 || code == 429){\r",
+							"    pm.collectionVariables.set(\"Manager\",null);\r",
+							"    postman.setNextRequest(\"Manager Status\");\r",
+							"}else {\r",
+							"    postman.setNextRequest(null)\r",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"_postman_id": "bae3c277-6e1c-4b1f-bd37-f65492f4dfe0",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "x-auth",
+						"value": "{{Manager}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"status\": \"APPROVED\",\r\n    \"remarks\": \"All the Details are OK\"\r\n}\r\n// Rejected",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{BaseUrl}}/api/v1/vendor/outlet/pending/{{applicationId}}/managerStatus"
+			},
+			"response": []
+		},
+		{
+			"name": "AGM Pending Outlets",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "9ecc60f8-e4b9-4b78-8de9-539d322756d1",
+						"exec": [
+							"const auth = pm.collectionVariables.get(\"AGM\");\r",
+							"if(auth == undefined || auth == null){\r",
+							"    const url = pm.environment.get(\"BaseUrl\");\r",
+							"    const postRequest = {\r",
+							"        url: ''+url+'/api/v1/auth/user/login',\r",
+							"        method: 'POST',\r",
+							"        header: {\r",
+							"            'Content-Type': 'application/json',\r",
+							"        },\r",
+							"        body: {\r",
+							"            mode: 'raw',\r",
+							"            raw: JSON.stringify({\r",
+							"                \"mobile\": \"9565656565\",\r",
+							"                \"password\": \"test123\",\r",
+							"            })\r",
+							"        }\r",
+							"    };\r",
+							"    pm.sendRequest(postRequest, (error, response) => {\r",
+							"        var x_auth = response.headers.find(h => h.key == \"X-AUTH\");\r",
+							"        var token = x_auth.value;\r",
+							"        pm.collectionVariables.set(\"AGM\", token);\r",
+							"    });\r",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "aa669e91-46f0-400a-ac17-cb7d3cdf191a",
+						"exec": [
+							"const code = pm.response.code;\r",
+							"\r",
+							"if(code == 200){\r",
+							"\r",
+							"    const resBody = pm.response.json().result;\r",
+							"    const aggregatorOutletId = pm.collectionVariables.get(\"aggregatorOutletId\");\r",
+							"    const applicationId = pm.collectionVariables.get(\"applicationId\");\r",
+							"    const applicationType = pm.collectionVariables.get(\"applicationType\");\r",
+							"\r",
+							"    const applicationDetails = resBody.data.find((id) => {\r",
+							"        return id.id == applicationId && id.aggregatorOutletId == aggregatorOutletId;\r",
+							"    });\r",
+							"\r",
+							"    if(applicationDetails != undefined){\r",
+							"\r",
+							"        pm.test(\"outlet id match to the Response data\", () => {\r",
+							"            pm.expect(aggregatorOutletId).to.be.equal(applicationDetails.aggregatorOutletId);\r",
+							"        });\r",
+							"        pm.test(\"application id are match to the Response data\", () => {\r",
+							"            pm.expect(applicationId).to.be.equal(applicationDetails.id);\r",
+							"        });\r",
+							"        pm.test(\"applicationType are match to the previous type\", () => {\r",
+							"            pm.expect(applicationType).to.be.equal(applicationDetails.applicationType)\r",
+							"        });\r",
+							"        pm.test(\"outlet status are visible as APPROVAL_PENDING\", () => {\r",
+							"            pm.expect(\"APPROVAL_PENDING\").to.be.equal(applicationDetails.status);\r",
+							"        });\r",
+							"        pm.test(\"supervisor are apporved the Status\", () => {\r",
+							"            pm.expect(\"APPROVED\").to.be.equal(applicationDetails.supervisorStatus);\r",
+							"        });\r",
+							"        pm.test(\"Manager are Approved the Status\", () => {\r",
+							"            pm.expect(\"APPROVED\").to.be.equal(applicationDetails.managerStatus);\r",
+							"        });\r",
+							"\r",
+							"        const supervisorStatus = applicationDetails.supervisorStatus;\r",
+							"        const managerstatus = applicationDetails.managerStatus;\r",
+							"        const approverStatus = applicationDetails.approverStatus;\r",
+							"        if(supervisorStatus == \"APPROVED\" && managerstatus == \"APPROVED\"){\r",
+							"            postman.setNextRequest(\"AGM Status\");\r",
+							"        }else{\r",
+							"            postman.setNextRequest(null);\r",
+							"        }\r",
+							"    }else{\r",
+							"        pm.test(\"outlet are not visible in the Pending outlets\", () => {\r",
+							"            pm.expect(true).to.be.false;\r",
+							"        });\r",
+							"        postman.setNextRequest(null);\r",
+							"    }\r",
+							"}else if(code == 401 ||code == 429){\r",
+							"    pm.collectionVariables.set(\"AGM\",null);\r",
+							"    postman.setNextRequest(\"AGM Pending Outlets\")\r",
+							"}else{\r",
+							"    postman.setNextRequest(null)\r",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"_postman_id": "d0d4a30a-5dcb-4eb9-95cc-adff03fe98ca",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-auth",
+						"value": "{{AGM}}",
+						"type": "text"
+					}
+				],
+				"url": "{{BaseUrl}}/api/v1/vendor/outlet/pending"
+			},
+			"response": []
+		},
+		{
+			"name": "AGM Status",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "fc6dbc99-c7a2-47de-8220-fe9bb32dd114",
+						"exec": [
+							"const auth = pm.collectionVariables.get(\"AGM\");\r",
+							"if(auth == undefined || auth == null){\r",
+							"    const url = pm.environment.get(\"BaseUrl\");\r",
+							"    const postRequest = {\r",
+							"        url: ''+url+'/api/v1/auth/user/login',\r",
+							"        method: 'POST',\r",
+							"        header: {\r",
+							"            'Content-Type': 'application/json',\r",
+							"        },\r",
+							"        body: {\r",
+							"            mode: 'raw',\r",
+							"            raw: JSON.stringify({\r",
+							"                \"mobile\": \"9565656565\",\r",
+							"                \"password\": \"test123\",\r",
+							"            })\r",
+							"        }\r",
+							"    };\r",
+							"    pm.sendRequest(postRequest, (error, response) => {\r",
+							"        var x_auth = response.headers.find(h => h.key == \"X-AUTH\");\r",
+							"        var token = x_auth.value;\r",
+							"        pm.collectionVariables.set(\"AGM\", token);\r",
+							"    });\r",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "597ceb62-7c32-4257-8c05-2e5f33d45ce0",
+						"exec": [
+							"const code = pm.response.code;\r",
+							"\r",
+							"if(code == 200){\r",
+							"    const aggregatorOutletId = pm.collectionVariables.get(\"aggregatorOutletId\");\r",
+							"    const applicationId = pm.collectionVariables.get(\"applicationId\");\r",
+							"    const applicationType = pm.collectionVariables.get(\"applicationType\");\r",
+							"    const resBody = pm.response.json().result;\r",
+							"\r",
+							"    pm.test(\"Got Status code 200\", () => {\r",
+							"        pm.expect(code).to.be.equal(200);\r",
+							"    });\r",
+							"    pm.test(\"Outlet id are match in the Response\", () => {\r",
+							"        pm.expect(aggregatorOutletId).to.be.equal(resBody.aggregatorOutletId);\r",
+							"    })\r",
+							"    pm.test(\"application Id are match to the Response\", () => {\r",
+							"        pm.expect(applicationId).to.be.equal(resBody.id);\r",
+							"    })\r",
+							"    pm.test(\"applicationType are visible as Expected\", () => {\r",
+							"        pm.expect(applicationType).to.be.equal(resBody.applicationType);\r",
+							"    })\r",
+							"    pm.test(\"outlet status are visible as 'Approval_pending\", () => {\r",
+							"        pm.expect(\"APPROVED\").to.be.equal(resBody.status);\r",
+							"    });\r",
+							"\r",
+							"\r",
+							"\r",
+							"    \r",
+							"\r",
+							"const url = pm.environment.get(\"BaseUrl\");\r",
+							"    const stationCode = pm.collectionVariables.get(\"stationCode\");\r",
+							"    const vendorId = pm.collectionVariables.get(\"vendorId\")\r",
+							"    const auth = pm.collectionVariables.get(\"Aggregator\");\r",
+							"    const postRequest = {\r",
+							"        url: ''+url+'/api/v1/vendor/aggregator/outlets/'+stationCode+''+'/'+''+ vendorId+'',\r",
+							"        method: 'GET',\r",
+							"        header: {\r",
+							"            'Content-Type': 'application/json',\r",
+							"            \"x-auth\" : ''+auth+''\r",
+							"        }\r",
+							"    };\r",
+							"    pm.sendRequest(postRequest, (error, response) => {\r",
+							"        const code = response.code;\r",
+							"        if(code == 200){\r",
+							"            const resBody = response.json().result;\r",
+							"            const outletdetails = resBody.find((id) => {\r",
+							"                return id.aggregatorOutletId == aggregatorOutletId;\r",
+							"            });\r",
+							"            if(outletdetails != undefined){\r",
+							"                pm.test(\"Outlet are successfully listed in the outlets\", () => {\r",
+							"                    pm.expect(aggregatorOutletId).to.be.equal(outletdetails.aggregatorOutletId);\r",
+							"                });\r",
+							"                pm.test(\"outlet status are showing as In-active\", () => {\r",
+							"                    pm.expect(false).to.be.equal(outletdetails.active);\r",
+							"                })\r",
+							"            }else {\r",
+							"                pm.test(\"outlet are not listed in the outlets\", () => {\r",
+							"                    pm.expect(true).to.be.false;\r",
+							"                })\r",
+							"            }\r",
+							"        }\r",
+							"    });\r",
+							"\r",
+							"\r",
+							"\r",
+							"}else if(code == 401 || code == 429){\r",
+							"    pm.collectionVariables.set(\"AGM\",null);\r",
+							"    postman.setNextRequest(\"AGM Status\");\r",
+							"}else {\r",
+							"    postman.setNextRequest(null)\r",
+							"}\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"_postman_id": "9fc68537-263f-4593-9e7a-a4583644da06",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "x-auth",
+						"value": "{{AGM}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"status\": \"APPROVED\",\r\n    \"remarks\": \"All the Details are OK\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{BaseUrl}}/api/v1/vendor/outlet/pending/{{applicationId}}/status"
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "7d857d63-f2c9-451f-a790-00c7d0de7038",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "5de634a0-9569-41f1-8f23-c90652a12804",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "06bdd0b6-a8a0-4ac9-b418-1853406b164b",
+			"key": "supervisor",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"id": "bcc4e7c5-ca2f-49d8-a805-9ac722dc1e51",
+			"key": "vendorId",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"id": "8b60624e-0280-41fb-8465-3c9298a3745c",
+			"key": "stationCode",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"id": "3649cca8-6fd4-42bb-a30b-5349639f0967",
+			"key": "aggregatorOutletId",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"id": "a54b1053-7d93-494c-a0de-23fefe3bdaaf",
+			"key": "applicationId",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"id": "4c1ebe4f-4318-4678-a123-e664a5f50e4f",
+			"key": "applicationType",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"id": "d0451127-3389-40d6-bbb6-c070f9fa8581",
+			"key": "Manager",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"id": "f155fd0e-662e-4c37-9294-76362a1aa3f9",
+			"key": "AGM",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"id": "454be703-3d67-4007-9fb3-35ff6a9405f9",
+			"key": "Aggregator",
+			"value": "",
+			"type": "string"
+		}
+	]
+}
