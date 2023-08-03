@@ -247,7 +247,7 @@
 							"        method: 'GET',\r",
 							"        header: {\r",
 							"            'Content-Type': 'application/json',\r",
-							"            \"Authorization\" : '16773756-5d9c-4019-99b0-69c680775df2'\r",
+							"            \"x-auth\" : ''+auth+''\r",
 							"        }\r",
 							"    };\r",
 							"    pm.sendRequest(postRequest, (error, response) => {\r",
@@ -1050,22 +1050,22 @@
 	],
 	"variable": [
 		{
-			"id": "bad89456-c9b0-47bf-a0a6-a43b7e4c27e6",
+			"id": "bb0be9cd-d520-41a1-a1ce-22b73549b289",
 			"key": "Aggregator",
 			"value": ""
 		},
 		{
-			"id": "cb78cccf-8bfd-4ffc-ae19-fd46ff50df05",
+			"id": "1db748c0-c430-4929-8b94-7834a5003135",
 			"key": "vendorId",
 			"value": ""
 		},
 		{
-			"id": "380df330-0b71-4690-8ac3-ca62d616fa8a",
+			"id": "0c6a6f8b-75d7-43e3-941f-e6bc4da8207c",
 			"key": "aggregatorOutletId",
 			"value": ""
 		},
 		{
-			"id": "d75b266a-1745-4c84-a672-c2a387059b19",
+			"id": "35386554-88fd-4ecc-8799-06781d4af1ee",
 			"key": "stationCode",
 			"value": ""
 		}
