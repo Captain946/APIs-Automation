@@ -2494,5 +2494,17 @@
 				]
 			}
 		}
+	],
+	"variable": [
+		{
+			"id": "056ce0da-b31c-49ec-92d4-558fdfcbe4ed",
+			"key": "nextStation",
+			"value": ""
+		},
+		{
+			"id": "6f3360b3-12ee-4e6c-852b-1d8b4f621020",
+			"key": "station",
+			"value": ""
+		}
 	]
 }
