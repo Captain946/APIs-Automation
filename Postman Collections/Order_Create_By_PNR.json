@@ -2497,13 +2497,18 @@
 	],
 	"variable": [
 		{
-			"id": "056ce0da-b31c-49ec-92d4-558fdfcbe4ed",
+			"id": "7555db04-f857-4cf0-9013-88f501e3e93e",
 			"key": "nextStation",
 			"value": ""
 		},
 		{
-			"id": "6f3360b3-12ee-4e6c-852b-1d8b4f621020",
+			"id": "3b027df9-4936-48c7-a18e-1dd6a6bf7794",
 			"key": "station",
+			"value": ""
+		},
+		{
+			"id": "9003d18a-faf2-4d07-af08-36c9d2709210",
+			"key": "pnr",
 			"value": ""
 		}
 	]
