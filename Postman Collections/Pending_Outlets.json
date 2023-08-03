@@ -194,13 +194,13 @@
 					{
 						"key": "x-auth",
 						"value": "{{Aggregator}}",
-						"type": "text",
-						"disabled": true
+						"type": "text"
 					},
 					{
 						"key": "Authorization",
 						"value": "16773756-5d9c-4019-99b0-69c680775df2",
-						"type": "text"
+						"type": "text",
+						"disabled": true
 					}
 				],
 				"url": "{{BaseUrl}}/api/v1/vendor/outlet/pending"
@@ -1050,22 +1050,22 @@
 	],
 	"variable": [
 		{
-			"id": "13e47785-25d5-471d-b567-f2573c896176",
+			"id": "bad89456-c9b0-47bf-a0a6-a43b7e4c27e6",
 			"key": "Aggregator",
 			"value": ""
 		},
 		{
-			"id": "3ff14669-11c2-4c56-ab17-3aa6ceff8fb6",
+			"id": "cb78cccf-8bfd-4ffc-ae19-fd46ff50df05",
 			"key": "vendorId",
 			"value": ""
 		},
 		{
-			"id": "4e1e2d26-b58a-417a-ae55-d9e90aa3a647",
+			"id": "380df330-0b71-4690-8ac3-ca62d616fa8a",
 			"key": "aggregatorOutletId",
 			"value": ""
 		},
 		{
-			"id": "dc1e42b1-efa3-4967-8e39-6bfb9f9627d3",
+			"id": "d75b266a-1745-4c84-a672-c2a387059b19",
 			"key": "stationCode",
 			"value": ""
 		}
