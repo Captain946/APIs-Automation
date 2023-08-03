@@ -83,7 +83,7 @@
 					}
 				}
 			],
-			"_postman_id": "d0536dda-6724-4825-80fd-840fff284c5e",
+			"id": "d0536dda-6724-4825-80fd-840fff284c5e",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -408,7 +408,7 @@
 					}
 				}
 			],
-			"_postman_id": "99b0a796-6128-4007-b6c0-57eb1cb68dac",
+			"id": "99b0a796-6128-4007-b6c0-57eb1cb68dac",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -673,7 +673,7 @@
 					}
 				}
 			],
-			"_postman_id": "1a7b37b4-1580-492e-aa52-2a6e979b3c78",
+			"id": "1a7b37b4-1580-492e-aa52-2a6e979b3c78",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -926,7 +926,7 @@
 					}
 				}
 			],
-			"_postman_id": "80a312a6-6aa0-4eb6-9423-5b5a29a9dc02",
+			"id": "80a312a6-6aa0-4eb6-9423-5b5a29a9dc02",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -1122,7 +1122,7 @@
 					}
 				}
 			],
-			"_postman_id": "393bf66c-7d37-4ff0-a171-79eb6f46e74a",
+			"id": "393bf66c-7d37-4ff0-a171-79eb6f46e74a",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -1229,7 +1229,7 @@
 					}
 				}
 			],
-			"_postman_id": "ae07facc-863c-40ce-a598-2438e082c405",
+			"id": "ae07facc-863c-40ce-a598-2438e082c405",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -1341,7 +1341,7 @@
 					}
 				}
 			],
-			"_postman_id": "4d429fcc-1e70-4262-8810-c07c5d0e4e03",
+			"id": "4d429fcc-1e70-4262-8810-c07c5d0e4e03",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -1758,7 +1758,7 @@
 					}
 				}
 			],
-			"_postman_id": "38fcaebe-f98b-483c-9170-211f76b775bc",
+			"id": "38fcaebe-f98b-483c-9170-211f76b775bc",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -2184,7 +2184,7 @@
 					}
 				}
 			],
-			"_postman_id": "383dce7c-4862-412b-a0d0-8b8ab0c167d9",
+			"id": "383dce7c-4862-412b-a0d0-8b8ab0c167d9",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -2212,8 +2212,7 @@
 						{
 							"id": "dac8e46f-a361-47e8-80b9-fa8e2551162e",
 							"key": "orderId",
-							"value": "{{orderId}}",
-							"type": "string"
+							"value": "{{orderId}}"
 						}
 					]
 				}
@@ -2456,7 +2455,7 @@
 					}
 				}
 			],
-			"_postman_id": "f73431f0-910e-41d4-9daf-5944ee70bcee",
+			"id": "f73431f0-910e-41d4-9daf-5944ee70bcee",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -2478,7 +2477,7 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "d84b33b2-4ca6-4af6-82cb-99dafc0744c6",
+				"id": "db579264-0cac-4817-84f1-a84806784eea",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -2488,7 +2487,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "3e6a6ea1-1d8f-48c2-8247-c2b8eca01fb0",
+				"id": "d5b6be49-9e47-47fc-b407-419c3575ef17",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -2498,298 +2497,249 @@
 	],
 	"variable": [
 		{
-			"id": "30f6d86b-b7a9-4c16-90be-e7111279b131",
+			"id": "47b67466-6830-41b1-8582-2cef14f99659",
 			"key": "nextStation",
-			"value": "",
-			"type": "string"
+			"value": "0"
 		},
 		{
-			"id": "84d8654c-e59f-4159-a90b-f43477b161e5",
+			"id": "84bb9306-8119-40fa-bbec-fb6fe0980802",
 			"key": "station",
-			"value": "",
-			"type": "string"
+			"value": ""
 		},
 		{
-			"id": "019a86e7-7d92-4723-90d3-7e78eb3e9f2a",
+			"id": "9cb264ed-fa81-4087-9e60-0da45316bfce",
 			"key": "pnr",
-			"value": "",
-			"type": "string"
+			"value": ""
 		},
 		{
-			"id": "954fa537-d8c3-4d3c-a893-d1422335e3eb",
+			"id": "7d40132a-5f81-46e5-bb94-2ec9f9609ed8",
 			"key": "PNR",
-			"value": "",
-			"type": "string"
+			"value": ""
 		},
 		{
-			"id": "b9c0afbe-07df-4432-a131-ebaf05f97e2f",
+			"id": "568ac900-b0c1-4ba2-97c7-8da03a22e640",
 			"key": "totalServiceAbleStations",
-			"value": "",
-			"type": "string"
+			"value": ""
 		},
 		{
-			"id": "b3aa112d-72f1-43fa-8c5e-a0294e681a44",
+			"id": "5b41ac14-1f21-4699-acfc-eb8859c22ddb",
 			"key": "StationCode0",
-			"value": "",
-			"type": "string"
+			"value": ""
 		},
 		{
-			"id": "d5f5b056-aaec-4089-a9fd-5edae3e9e5b0",
+			"id": "deb39c77-77ba-4c5a-ae92-1bd44697bf28",
 			"key": "StationName0",
-			"value": "",
-			"type": "string"
+			"value": ""
 		},
 		{
-			"id": "95683749-b3e2-4ab4-a2a6-dbbd7cb59ce0",
+			"id": "64815943-a74e-44dc-adf6-43905074cea5",
 			"key": "eta0",
-			"value": "",
-			"type": "string"
+			"value": ""
 		},
 		{
-			"id": "57fc6e67-d19c-4502-bcfd-68c04fdc4189",
+			"id": "943aa1a5-8413-46ea-abae-13544430b702",
 			"key": "time0",
-			"value": "",
-			"type": "string"
+			"value": ""
 		},
 		{
-			"id": "ae3da438-87b1-4899-9b80-a09d4522ffa0",
+			"id": "b72a2b2c-235a-4ba6-ab76-81a98de6141b",
 			"key": "date0",
-			"value": "",
-			"type": "string"
+			"value": ""
 		},
 		{
-			"id": "fc5f82d1-8101-47c8-b5a2-a8232d4616a6",
+			"id": "aabd6c14-39f4-46a2-8fed-664649f63dbb",
 			"key": "StationCode1",
-			"value": "",
-			"type": "string"
+			"value": ""
 		},
 		{
-			"id": "87d1ade1-d373-4b60-828a-c24efecae5b8",
+			"id": "e3498f13-0e34-476e-842e-048aaf1ab99d",
 			"key": "StationName1",
-			"value": "",
-			"type": "string"
+			"value": ""
 		},
 		{
-			"id": "642d27c6-8f6c-41c6-b9d7-7bb8aed97fd3",
+			"id": "efce3d5f-7d17-47cd-a8f7-fac8e80c5a21",
 			"key": "eta1",
-			"value": "",
-			"type": "string"
+			"value": ""
 		},
 		{
-			"id": "f7c86c99-64d2-44c5-bd91-898c77c614aa",
+			"id": "4f7f6fc1-1a75-407b-90ca-aa5dbc0ebe19",
 			"key": "time1",
-			"value": "",
-			"type": "string"
+			"value": ""
 		},
 		{
-			"id": "9b5eb235-6026-4fa9-b274-c0e9010b2621",
+			"id": "f683b671-e0b5-4976-90a5-7d0a5d4d02cb",
 			"key": "date1",
-			"value": "",
-			"type": "string"
+			"value": ""
 		},
 		{
-			"id": "1358829f-f6bb-4381-965f-de3ffea10bb0",
+			"id": "4beaaa9d-9802-41ec-bdda-eb9bb7d9a9b9",
 			"key": "StationCode2",
-			"value": "",
-			"type": "string"
+			"value": ""
 		},
 		{
-			"id": "9d12e1e7-5e6c-4f5d-a799-073b8e46ec7a",
+			"id": "d7c3b926-f150-4ed0-8d2f-3caa3b3253cc",
 			"key": "StationName2",
-			"value": "",
-			"type": "string"
+			"value": ""
 		},
 		{
-			"id": "e2b81217-b7db-4e69-af7c-d7089ee8b1f1",
+			"id": "b31f0c2c-0445-401a-85ac-c771c6665cf7",
 			"key": "eta2",
-			"value": "",
-			"type": "string"
+			"value": ""
 		},
 		{
-			"id": "a0540871-dc6a-4900-93b8-8f73fbeeb88a",
+			"id": "67226511-ae60-4ecc-ae0d-782c09b23e10",
 			"key": "time2",
-			"value": "",
-			"type": "string"
+			"value": ""
 		},
 		{
-			"id": "2e6888b7-3f00-4b03-ad99-61d46e45416a",
+			"id": "8cd3a149-6651-4d9d-95f2-219805921997",
 			"key": "date2",
-			"value": "",
-			"type": "string"
+			"value": ""
 		},
 		{
-			"id": "80177cb1-a8e7-4790-b9d6-069b2545ede9",
+			"id": "b7dd91ec-1672-40f5-8b94-ef8a0cea8c41",
 			"key": "StationCode3",
-			"value": "",
-			"type": "string"
+			"value": ""
 		},
 		{
-			"id": "48e86e12-ece2-4f53-a122-09bda5efa912",
+			"id": "baaa2483-c7e6-4765-8687-987da7687b06",
 			"key": "StationName3",
-			"value": "",
-			"type": "string"
+			"value": ""
 		},
 		{
-			"id": "9cf88911-6764-4820-969e-0e51216110d9",
+			"id": "a965a46d-c5f1-43e4-b3fb-82220f52b098",
 			"key": "eta3",
-			"value": "",
-			"type": "string"
+			"value": ""
 		},
 		{
-			"id": "60999bb6-f948-44c6-a9dd-0b9668371b0a",
+			"id": "fb6605c8-bc6b-42da-912f-08f6dbd52139",
 			"key": "time3",
-			"value": "",
-			"type": "string"
+			"value": ""
 		},
 		{
-			"id": "f8566482-3613-4392-80d3-42cc0a8714a3",
+			"id": "ce163368-f4af-4946-9fb5-cc69c854b26a",
 			"key": "date3",
-			"value": "",
-			"type": "string"
+			"value": ""
 		},
 		{
-			"id": "7afc4677-1268-470e-b40c-ea026418e45d",
+			"id": "00d9be25-aa0a-457b-b0c3-b4e71a0a5100",
 			"key": "StationCode4",
-			"value": "",
-			"type": "string"
+			"value": ""
 		},
 		{
-			"id": "be04eb14-194a-4df4-9bca-11b98a0cf054",
+			"id": "0bfeb18f-6c94-4c84-8ec3-16eafd319e99",
 			"key": "StationName4",
-			"value": "",
-			"type": "string"
+			"value": ""
 		},
 		{
-			"id": "983ae425-5553-4e16-b982-0f2b213c659b",
+			"id": "d85a8d78-36c9-498b-90ae-259bbc3f8629",
 			"key": "eta4",
-			"value": "",
-			"type": "string"
+			"value": ""
 		},
 		{
-			"id": "fde17981-b1e5-445f-9833-106081cfe1c3",
+			"id": "ca35eccc-ea46-46b8-a700-2a50acfd46cd",
 			"key": "time4",
-			"value": "",
-			"type": "string"
+			"value": ""
 		},
 		{
-			"id": "bdab38ae-9804-40df-8923-514b9766c67d",
+			"id": "e5b79fcb-8ed8-4d33-aeb3-df0cf870fab7",
 			"key": "date4",
-			"value": "",
-			"type": "string"
+			"value": ""
 		},
 		{
-			"id": "a0077d52-7eb5-4d11-a084-7ded898d2fd8",
+			"id": "6dd0bb05-d2dc-47be-8133-af1c052cb06e",
 			"key": "StationCode5",
-			"value": "",
-			"type": "string"
+			"value": ""
 		},
 		{
-			"id": "f63f520d-0174-463d-a69e-a77a5b675a9f",
+			"id": "c5da30a1-a3cb-4bf8-a3a7-00ab28e65a5f",
 			"key": "StationName5",
-			"value": "",
-			"type": "string"
+			"value": ""
 		},
 		{
-			"id": "0d22e23a-1b95-4b64-b265-eac03e834e17",
+			"id": "04be45e0-00aa-469f-b44f-ed8a124d4396",
 			"key": "eta5",
-			"value": "",
-			"type": "string"
+			"value": ""
 		},
 		{
-			"id": "b8003b4d-6fd7-44b8-8e1d-cf96c02bb61d",
+			"id": "66cf26f0-723d-403b-abac-8df59f2938da",
 			"key": "time5",
-			"value": "",
-			"type": "string"
+			"value": ""
 		},
 		{
-			"id": "4aff05b4-28f8-44aa-a57b-97265d2b80f9",
+			"id": "0b4898a3-0a25-4c04-a342-d874261e6c7e",
 			"key": "date5",
-			"value": "",
-			"type": "string"
+			"value": ""
 		},
 		{
-			"id": "f5998000-e0e1-4106-85c7-f7ff27fa7ffa",
+			"id": "5bf83b3e-ead1-4017-9ec4-3fa68b831a5b",
 			"key": "trainNo",
-			"value": "",
-			"type": "string"
+			"value": ""
 		},
 		{
-			"id": "73c74338-f2ad-4d49-9ceb-6e07ae5de69a",
+			"id": "d111da7c-5a14-4a08-bd4b-f268159755b7",
 			"key": "trainName",
-			"value": "",
-			"type": "string"
+			"value": ""
 		},
 		{
-			"id": "1f7229d7-b57d-4be0-8637-bf6971f4f968",
+			"id": "086329fd-4e05-4e8a-860d-4d6f7525d841",
 			"key": "coach",
-			"value": "",
-			"type": "string"
+			"value": ""
 		},
 		{
-			"id": "f29b487f-d960-46ad-9f00-2f7c12e421b3",
+			"id": "3ea346ba-f47f-478e-b76c-52f9ec5a5252",
 			"key": "berth",
-			"value": "",
-			"type": "string"
+			"value": ""
 		},
 		{
-			"id": "c5d53341-46da-4fbd-a7af-4c52f5f8aae8",
+			"id": "1df3815c-957e-4efc-9a8b-10271ad03f6e",
 			"key": "noOfPassanger",
-			"value": "",
-			"type": "string"
+			"value": ""
 		},
 		{
-			"id": "7329cf30-fda8-444e-a469-db0e5fe6455a",
+			"id": "87ad6798-353a-42e6-a6e2-66b2a6f926c4",
 			"key": "StationCode",
-			"value": "",
-			"type": "string"
+			"value": ""
 		},
 		{
-			"id": "2865eb2e-7fe3-47a0-a45a-2f421fe05a2a",
+			"id": "fbda3fe7-5758-433d-b634-9301fd91c153",
 			"key": "time",
-			"value": "",
-			"type": "string"
+			"value": ""
 		},
 		{
-			"id": "4bd79142-ad90-4d67-97fc-2f9016ca69ab",
+			"id": "2be8f045-2ccd-43ec-9847-13f8e64825ca",
 			"key": "date",
-			"value": "",
-			"type": "string"
+			"value": ""
 		},
 		{
-			"id": "c8bc3a2d-d8c7-403c-b549-06fa0c0fdab4",
+			"id": "068f695e-0162-4e92-bea8-1d613b63125a",
 			"key": "totalRunOutletApi",
-			"value": "",
-			"type": "string"
+			"value": ""
 		},
 		{
-			"id": "a9480712-8c1d-4e25-8127-020dcfbddcc3",
+			"id": "d4c66f95-aa58-4b05-bcdd-c6a19fb8462f",
 			"key": "VendorId",
-			"value": "",
-			"type": "string"
+			"value": ""
 		},
 		{
-			"id": "189ce3c6-2c82-4598-85a8-19b5b9b16e61",
+			"id": "59c17b59-cc7b-4a12-a802-9b19b86ff7af",
 			"key": "OutletId",
-			"value": "",
-			"type": "string"
+			"value": ""
 		},
 		{
-			"id": "dbbfba96-a4a1-475c-8622-a22228850792",
+			"id": "acdf1aa6-320b-4836-a864-9548f3340f8e",
 			"key": "deliveryCharge",
-			"value": "",
-			"type": "string"
+			"value": ""
 		},
 		{
-			"id": "9c5ff38d-f2b6-420e-9b23-506bbf6874b8",
+			"id": "8a12ca2b-481a-4fb4-849f-185911d8f232",
 			"key": "Id1",
-			"value": "",
-			"type": "string"
+			"value": ""
 		},
 		{
-			"id": "1e1751b7-4e9a-4017-8a90-0e040d3db101",
+			"id": "79ac37a7-0a9b-4957-9e8c-341e203c7b82",
 			"key": "BasePrice",
-			"value": "",
-			"type": "string"
+			"value": ""
 		}
 	]
 }
