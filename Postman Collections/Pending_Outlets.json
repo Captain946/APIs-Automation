@@ -315,13 +315,13 @@
 					{
 						"key": "x-auth",
 						"value": "{{Aggregator}}",
-						"type": "text",
-						"disabled": true
+						"type": "text"
 					},
 					{
 						"key": "Authorization",
 						"value": "16773756-5d9c-4019-99b0-69c680775df2",
-						"type": "text"
+						"type": "text",
+						"disabled": true
 					}
 				],
 				"body": {
@@ -1050,22 +1050,22 @@
 	],
 	"variable": [
 		{
-			"id": "53bebb99-b1eb-429f-a2dd-6d3075218a0b",
+			"id": "20aa9971-1f96-429f-a861-19773f88fbb1",
 			"key": "Aggregator",
 			"value": ""
 		},
 		{
-			"id": "86ae7241-28ac-4bbc-a000-635093828593",
+			"id": "d642e760-a26f-4e90-909c-1bbd2b16d3fa",
 			"key": "vendorId",
 			"value": ""
 		},
 		{
-			"id": "aae0ec55-0e18-4c33-bca8-1d34e87f995b",
+			"id": "b0f2702c-d3c9-4562-aea3-fde0b7631c96",
 			"key": "aggregatorOutletId",
 			"value": ""
 		},
 		{
-			"id": "f541d08f-fc55-4720-85cb-6b276ec12b65",
+			"id": "9cc7a69b-3a9d-4ee5-8ed6-80240e783028",
 			"key": "stationCode",
 			"value": ""
 		}
