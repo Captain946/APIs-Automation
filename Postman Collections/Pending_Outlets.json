@@ -1050,13 +1050,23 @@
 	],
 	"variable": [
 		{
-			"id": "3a0306fa-987d-405b-9aed-9a7eabbc547c",
+			"id": "ea45fe31-6ecd-43db-8322-93120211b9ab",
 			"key": "Aggregator",
 			"value": ""
 		},
 		{
-			"id": "de7c2527-43bb-4e10-9711-53f6dbede98e",
+			"id": "d5f821a9-a57d-4799-9c0d-d00f0660f115",
 			"key": "vendorId",
+			"value": ""
+		},
+		{
+			"id": "554acd43-607b-4d6a-acba-64a42cb9e33c",
+			"key": "aggregatorOutletId",
+			"value": ""
+		},
+		{
+			"id": "17523f57-58d5-4af0-9bab-9f53929e442d",
+			"key": "stationCode",
 			"value": ""
 		}
 	]
