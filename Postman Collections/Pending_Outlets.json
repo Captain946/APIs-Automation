@@ -1032,47 +1032,47 @@
 	],
 	"variable": [
 		{
-			"id": "1524903b-1647-4c43-8b5b-47ce5eac524c",
+			"id": "f915d4be-a904-4e5e-83ef-4adeac660851",
 			"key": "supervisor",
 			"value": ""
 		},
 		{
-			"id": "1c0137c2-4280-496c-bdfe-ce8f0c5a79e4",
+			"id": "364b7acd-345f-4d78-9f35-ec4670955999",
 			"key": "vendorId",
 			"value": ""
 		},
 		{
-			"id": "142913ad-59c1-44da-bfa4-30ea91cdf515",
+			"id": "f51384e0-070b-4923-9023-a44b4ae882dd",
 			"key": "stationCode",
 			"value": ""
 		},
 		{
-			"id": "a4452b80-7165-42ab-850a-6c5027985fe2",
+			"id": "021cb489-7ae2-4592-aafe-39a279b4d39a",
 			"key": "aggregatorOutletId",
 			"value": ""
 		},
 		{
-			"id": "0e678c8d-5020-45f8-b641-249673bca60d",
+			"id": "0e704fcc-799e-4711-9242-242905550320",
 			"key": "applicationId",
 			"value": ""
 		},
 		{
-			"id": "567cef10-2eba-4e54-b626-50dc340e6aac",
+			"id": "71301454-df59-4809-8ef9-95d525389277",
 			"key": "applicationType",
 			"value": ""
 		},
 		{
-			"id": "0934eb3b-3143-4c94-833e-473e4b32521a",
+			"id": "33805f49-d1a0-47d8-98bb-090fae6624e6",
 			"key": "Manager",
 			"value": ""
 		},
 		{
-			"id": "bfc602fd-a98c-4424-930e-444521fac1c8",
+			"id": "0320243a-5006-474e-8092-8cff5e4ef068",
 			"key": "AGM",
 			"value": ""
 		},
 		{
-			"id": "7008bb47-81b4-428d-bc5e-e62d845ac4a1",
+			"id": "0ecb6efd-abcf-49e6-ad3f-214022d36d75",
 			"key": "Aggregator",
 			"value": ""
 		}
