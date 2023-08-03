@@ -2477,7 +2477,7 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "9bbb1393-8928-48aa-b9f7-e1045eb3880d",
+				"id": "ab569a5e-8508-41d9-a5be-09b29f8b62b5",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -2487,7 +2487,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "3b77634c-04be-4df3-a4c7-7c61e1e9cdfd",
+				"id": "f152123f-90d7-4e36-9128-907de9520080",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -2497,17 +2497,17 @@
 	],
 	"variable": [
 		{
-			"id": "7555db04-f857-4cf0-9013-88f501e3e93e",
+			"id": "4110f822-d230-4d11-957b-cbbd662257c1",
 			"key": "nextStation",
-			"value": ""
+			"value": "0"
 		},
 		{
-			"id": "3b027df9-4936-48c7-a18e-1dd6a6bf7794",
+			"id": "b79f40a6-a4c5-45ff-8bd2-8500f419793d",
 			"key": "station",
 			"value": ""
 		},
 		{
-			"id": "9003d18a-faf2-4d07-af08-36c9d2709210",
+			"id": "7298c289-84ae-453d-b601-49a66bbaa20e",
 			"key": "pnr",
 			"value": ""
 		}
