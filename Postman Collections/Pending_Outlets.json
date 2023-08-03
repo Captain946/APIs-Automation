@@ -1047,5 +1047,17 @@
 				]
 			}
 		}
+	],
+	"variable": [
+		{
+			"id": "69e7ff84-b568-4ac2-a6c5-f673e178b866",
+			"key": "Aggregator",
+			"value": ""
+		},
+		{
+			"id": "ca333c18-75a1-44b2-a913-22e0da973409",
+			"key": "vendorId",
+			"value": ""
+		}
 	]
 }
