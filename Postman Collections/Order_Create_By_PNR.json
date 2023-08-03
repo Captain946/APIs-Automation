@@ -1099,7 +1099,7 @@
 							"var coupon = jsonData.coupons;\r",
 							"if (coupon.length != 0) {\r",
 							"    var couponId = coupon[0].couponCode;\r",
-							"    pm.collectionVariables.set(\"Discount\", JSON.stringify(couponId));\r",
+							"    pm.collectionVariables.set(\"Discount\",couponId);\r",
 							"    postman.setNextRequest(\"Coupon validate\")\r",
 							"} else if (coupon.length == 0){\r",
 							"    postman.setNextRequest(\"Payment available\");\r",
@@ -2497,52 +2497,52 @@
 	],
 	"variable": [
 		{
-			"id": "727192b9-174f-454e-b91d-29d767ffc959",
+			"id": "19d69084-b793-4ab5-a2af-c730d175be86",
 			"key": "nextStation",
 			"value": "0"
 		},
 		{
-			"id": "6411aabc-e581-4c4c-84ed-b40223ec5fb8",
+			"id": "7e453caf-2a67-4fe5-9228-24df8e5d2a9d",
 			"key": "station",
 			"value": "NDLS"
 		},
 		{
-			"id": "8e01f9c4-9229-42e1-8df7-8015ba26bea6",
+			"id": "cee1d69d-b3e7-459a-b709-ea5244be9870",
 			"key": "pnr",
 			"value": ""
 		},
 		{
-			"id": "afd2c0d9-1871-41f2-bc02-68ca77a8a228",
+			"id": "e1b773ff-527e-4c3d-ab6d-5b812ccccc1f",
 			"key": "AUTH",
 			"value": ""
 		},
 		{
-			"id": "b6567227-fab9-4d3e-8297-9dacd489c97f",
+			"id": "2aad6773-5745-47cb-a688-83fb54903ff9",
 			"key": "CustomerId",
 			"value": ""
 		},
 		{
-			"id": "64b15584-fafb-4c0b-bc42-7ea1fe2e323d",
+			"id": "5f170ebf-a2ee-46a2-87bf-f6dbfae450c8",
 			"key": "CustomerName",
 			"value": ""
 		},
 		{
-			"id": "5e15bde5-ba24-4246-93c4-0593e1bba2f5",
+			"id": "b6cfc691-9aaa-4b9c-9f67-e6542e2c1e10",
 			"key": "CustomerEmail",
 			"value": ""
 		},
 		{
-			"id": "c5bf4ef6-81c9-463c-be55-1c65c4720397",
+			"id": "2e5a1635-1fb4-4be3-987e-9bcb99ff9e5f",
 			"key": "CustomerPhone",
 			"value": ""
 		},
 		{
-			"id": "55636618-845f-4712-83b9-4073598df7a7",
+			"id": "25284ce9-f9d1-4ad3-94ef-fc15b15d809c",
 			"key": "Device",
 			"value": ""
 		},
 		{
-			"id": "caa7c41c-0507-4bf1-911b-90762265dc95",
+			"id": "febff33c-1139-493a-9226-2cf4d1816eec",
 			"key": "Discount",
 			"value": ""
 		}
