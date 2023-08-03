@@ -75,7 +75,7 @@
 					}
 				}
 			],
-			"_postman_id": "7e725039-6481-4d8d-aca1-11c0ee074240",
+			"id": "7e725039-6481-4d8d-aca1-11c0ee074240",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -97,7 +97,7 @@
 						}
 					}
 				},
-				"url": "{{BaseUrl}}/api/v1/vendor/aggregator/outlets/NDLS"
+				"url": "{{BaseUrl}}/api/v1/vendor/aggregator/outlets/ET"
 			},
 			"response": []
 		},
@@ -178,7 +178,7 @@
 					}
 				}
 			],
-			"_postman_id": "f13a78db-62f7-4888-9892-1aceeef68406",
+			"id": "f13a78db-62f7-4888-9892-1aceeef68406",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -293,7 +293,7 @@
 					}
 				}
 			],
-			"_postman_id": "a2af136d-76d8-43cb-8313-a97a4706486d",
+			"id": "a2af136d-76d8-43cb-8313-a97a4706486d",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -412,7 +412,7 @@
 					}
 				}
 			],
-			"_postman_id": "83e97fae-d780-4480-8d72-20a0bbc8fc6c",
+			"id": "83e97fae-d780-4480-8d72-20a0bbc8fc6c",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -507,7 +507,7 @@
 					}
 				}
 			],
-			"_postman_id": "eae77584-28f5-4a67-8dfc-ba2813b1f4e2",
+			"id": "eae77584-28f5-4a67-8dfc-ba2813b1f4e2",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -628,7 +628,7 @@
 					}
 				}
 			],
-			"_postman_id": "9ed7188b-05bd-4f62-a41c-73b007d257eb",
+			"id": "9ed7188b-05bd-4f62-a41c-73b007d257eb",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -722,7 +722,7 @@
 					}
 				}
 			],
-			"_postman_id": "bae3c277-6e1c-4b1f-bd37-f65492f4dfe0",
+			"id": "bae3c277-6e1c-4b1f-bd37-f65492f4dfe0",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -847,7 +847,7 @@
 					}
 				}
 			],
-			"_postman_id": "d0d4a30a-5dcb-4eb9-95cc-adff03fe98ca",
+			"id": "d0d4a30a-5dcb-4eb9-95cc-adff03fe98ca",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -981,7 +981,7 @@
 					}
 				}
 			],
-			"_postman_id": "9fc68537-263f-4593-9e7a-a4583644da06",
+			"id": "9fc68537-263f-4593-9e7a-a4583644da06",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -1032,58 +1032,49 @@
 	],
 	"variable": [
 		{
-			"id": "06bdd0b6-a8a0-4ac9-b418-1853406b164b",
+			"id": "2b12fd04-8c30-478d-9b4e-7332ef799e38",
 			"key": "supervisor",
-			"value": "",
-			"type": "string"
+			"value": ""
 		},
 		{
-			"id": "bcc4e7c5-ca2f-49d8-a805-9ac722dc1e51",
+			"id": "ab2acde0-7967-4ed5-bdba-2e28c4919898",
 			"key": "vendorId",
-			"value": "",
-			"type": "string"
+			"value": ""
 		},
 		{
-			"id": "8b60624e-0280-41fb-8465-3c9298a3745c",
+			"id": "caac46ba-5b7a-4aa5-b8d9-c41a41d14c91",
 			"key": "stationCode",
-			"value": "",
-			"type": "string"
+			"value": ""
 		},
 		{
-			"id": "3649cca8-6fd4-42bb-a30b-5349639f0967",
+			"id": "7c4153be-90d0-4818-a697-5d3cdbc31c63",
 			"key": "aggregatorOutletId",
-			"value": "",
-			"type": "string"
+			"value": ""
 		},
 		{
-			"id": "a54b1053-7d93-494c-a0de-23fefe3bdaaf",
+			"id": "bddaaf79-5f67-4461-9dee-b63737e25b64",
 			"key": "applicationId",
-			"value": "",
-			"type": "string"
+			"value": ""
 		},
 		{
-			"id": "4c1ebe4f-4318-4678-a123-e664a5f50e4f",
+			"id": "af94cf37-6a28-46eb-ab9d-a7795291c405",
 			"key": "applicationType",
-			"value": "",
-			"type": "string"
+			"value": ""
 		},
 		{
-			"id": "d0451127-3389-40d6-bbb6-c070f9fa8581",
+			"id": "6b2950ac-fb02-4611-a97c-91edf885948e",
 			"key": "Manager",
-			"value": "",
-			"type": "string"
+			"value": ""
 		},
 		{
-			"id": "f155fd0e-662e-4c37-9294-76362a1aa3f9",
+			"id": "76bfe969-2054-407a-896e-a927cf6c17b5",
 			"key": "AGM",
-			"value": "",
-			"type": "string"
+			"value": ""
 		},
 		{
-			"id": "454be703-3d67-4007-9fb3-35ff6a9405f9",
+			"id": "983680b7-a4f0-46a5-9262-d9d965c15232",
 			"key": "Aggregator",
-			"value": "",
-			"type": "string"
+			"value": ""
 		}
 	]
 }
