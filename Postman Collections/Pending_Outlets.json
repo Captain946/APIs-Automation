@@ -96,7 +96,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"outlets\": [\r\n        {\r\n            \"outletId\": \"{{$randomBankAccount}}\",\r\n            \"outletName\": \"{{$randomProductName}}\",\r\n            \"order_timing\": \"60\",\r\n            \"minOrderAmount\": \"50\",\r\n            \"openingTime\": \"08:00\",\r\n            \"closingTime\": \"22:00\",\r\n            \"deliveryCost\": \"0\",\r\n            \"prepaid\": {{$randomBoolean}},\r\n            \"address\": \"{{$randomStreetAddress}}\",\r\n            \"city\": \"{{$randomCity}}\",\r\n            \"state\": \"New Delhi\",\r\n            \"companyName\": \"{{$randomCompanyName}}\",\r\n            \"vendorPanNumber\": \"AKRPN5086A\",\r\n            \"gstNo\": \"07QATCZ7586R1Z9\",\r\n            \"fssaiNo\": \"12345688900231\",\r\n            \"fssaiValidUpto\": \"2025-12-30\",\r\n            \"closingPeriod\": [],\r\n            \"weeklyClosed\": [],\r\n            \"logoImage\": \"https://s.tmimgcdn.com/scr/800x500/212900/spoon-and-fork-restaurant-logo_212966-original.png\",\r\n            \"email\": \"{{$randomEmail}}\",\r\n            \"mobile\": \"9000002102\"\r\n        }\r\n    ]\r\n}",
+					"raw": "{\r\n    \"outlets\": [\r\n        {\r\n            \"outletId\": \"{{$randomBankAccount}}\",\r\n            \"outletName\": \"{{$randomProductName}}\",\r\n            \"order_timing\": \"60\",\r\n            \"minOrderAmount\": \"50\",\r\n            \"openingTime\": \"08:00\",\r\n            \"closingTime\": \"22:00\",\r\n            \"deliveryCost\": \"10\",\r\n            \"prepaid\": {{$randomBoolean}},\r\n            \"address\": \"{{$randomStreetAddress}}\",\r\n            \"city\": \"{{$randomCity}}\",\r\n            \"state\": \"New Delhi\",\r\n            \"companyName\": \"{{$randomCompanyName}}\",\r\n            \"vendorPanNumber\": \"AKRPN5086A\",\r\n            \"gstNo\": \"07QATCZ7586R1Z9\",\r\n            \"fssaiNo\": \"12345688900231\",\r\n            \"fssaiValidUpto\": \"2025-12-30\",\r\n            \"closingPeriod\": [],\r\n            \"weeklyClosed\": [],\r\n            \"logoImage\": \"https://s.tmimgcdn.com/scr/800x500/212900/spoon-and-fork-restaurant-logo_212966-original.png\",\r\n            \"email\": \"{{$randomEmail}}\",\r\n            \"mobile\": \"9000002102\"\r\n        }\r\n    ]\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -1050,47 +1050,47 @@
 	],
 	"variable": [
 		{
-			"id": "9c900411-2893-4e63-b40e-4a1ffcd9a632",
+			"id": "4bb77584-5d35-4670-a04a-c011e3e29439",
 			"key": "Aggregator",
 			"value": ""
 		},
 		{
-			"id": "c232860a-5fc3-43cf-b3cb-12d27cfa6938",
+			"id": "5f2d8fdc-767f-48ad-bf5e-b01bb010ca19",
 			"key": "vendorId",
 			"value": ""
 		},
 		{
-			"id": "f6e5c42f-8166-4ac7-8744-4c0d595e14d3",
+			"id": "a836f6b4-b128-429d-afc8-99fbf03d062b",
 			"key": "aggregatorOutletId",
 			"value": ""
 		},
 		{
-			"id": "ab9e0231-bbd6-461c-aded-2062cbe7dc43",
+			"id": "f8f51920-3333-4066-8ca4-713bf2c631d0",
 			"key": "stationCode",
 			"value": ""
 		},
 		{
-			"id": "2f341cf7-50d2-40ba-be0d-0bf7423002ba",
+			"id": "4338c372-de41-40b8-979d-4a4ea46c093d",
 			"key": "applicationId",
 			"value": ""
 		},
 		{
-			"id": "c529f825-8b1d-4662-9f28-98cd3f550f5d",
+			"id": "85cf1cf5-3923-4920-b208-95a68670d97c",
 			"key": "applicationType",
 			"value": ""
 		},
 		{
-			"id": "be014a2c-800d-4fd9-a6d1-a5b3e22dd18b",
+			"id": "6eadc535-946f-4941-ba45-86aeea2b8e09",
 			"key": "supervisor",
 			"value": ""
 		},
 		{
-			"id": "43c327a8-725b-4616-add0-680da247d646",
+			"id": "a574878f-1b15-4490-b860-ce2a49353e1c",
 			"key": "Manager",
 			"value": ""
 		},
 		{
-			"id": "9b38eed6-d2af-4ab1-ba81-1b7d3ac99899",
+			"id": "4a97b1a8-ad9e-46f9-b5f2-179f83e79ba9",
 			"key": "AGM",
 			"value": ""
 		}
