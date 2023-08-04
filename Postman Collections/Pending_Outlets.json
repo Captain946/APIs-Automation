@@ -103,7 +103,7 @@
 						}
 					}
 				},
-				"url": "{{BaseUrl}}/api/v1/vendor/aggregator/outlets/JB"
+				"url": "{{BaseUrl}}/api/v1/vendor/aggregator/outlets/JBP"
 			},
 			"response": []
 		},
@@ -1050,47 +1050,47 @@
 	],
 	"variable": [
 		{
-			"id": "28e09b23-2aa3-4a2c-b42e-8fa9ab9adfb9",
+			"id": "479ae7f7-7a64-48fe-892c-b590cd144d1c",
 			"key": "Aggregator",
 			"value": ""
 		},
 		{
-			"id": "97c9407b-786b-42b6-888a-ecb1956d7434",
+			"id": "b52c99ed-50f5-4c83-8cf9-d744ee607f85",
 			"key": "vendorId",
 			"value": ""
 		},
 		{
-			"id": "ef2f71c1-5f01-4660-bf5a-c0f56f3dd109",
+			"id": "fdf38f2e-b71b-4041-ad5b-999f51eea472",
 			"key": "aggregatorOutletId",
 			"value": ""
 		},
 		{
-			"id": "b28ffbe2-e527-4d8b-ab13-e1d8816946aa",
+			"id": "1a12db17-853e-40ff-962c-4b472412a39f",
 			"key": "stationCode",
 			"value": ""
 		},
 		{
-			"id": "caa92091-3dfe-4227-acc3-eaf30d0c0109",
+			"id": "8fa65ac1-161a-4502-9bff-4281c4711fce",
 			"key": "applicationId",
 			"value": ""
 		},
 		{
-			"id": "6130ebed-4bcf-4c66-af4f-dde682981061",
+			"id": "b25ab5d1-681a-47e8-9a69-8c7eafaf5e7a",
 			"key": "applicationType",
 			"value": ""
 		},
 		{
-			"id": "41af6695-c9f1-44e8-9abb-d8a7b50aa0e5",
+			"id": "cc5c0725-e2fc-43be-868d-b04ffc8bbb50",
 			"key": "supervisor",
 			"value": ""
 		},
 		{
-			"id": "deb2538f-ad25-4d3e-b418-0c532529117e",
+			"id": "5c6d0f9f-aa2f-4e1e-bcf6-91077a9a9d26",
 			"key": "Manager",
 			"value": ""
 		},
 		{
-			"id": "03fbb3e4-5446-403f-8adf-56233db16aae",
+			"id": "7141b281-29ba-45d5-8918-bd71d64237aa",
 			"key": "AGM",
 			"value": ""
 		}
